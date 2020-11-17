@@ -1,9 +1,7 @@
-#include <Rcpp.h>
 #include <RcppGSL.h>
-#include <complex>
+#include <complex.h>
 #include "QF.h"
 
-// [[Rcpp::interfaces(r, cpp)]]
 
 // [[Rcpp::export]]
 List get_mellin_QF(NumericVector lambdas,

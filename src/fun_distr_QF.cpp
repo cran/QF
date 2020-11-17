@@ -1,10 +1,11 @@
 #include <Rcpp.h>
 #include <complex>
-#include <math.h>
+#include <cmath>
 #include "QF.h"
 
 using namespace Rcpp;
-// [[Rcpp::interfaces(r, cpp)]]
+
+
 
 // [[Rcpp::export]]
 std::vector<double> dQF_c(std::vector<double> q, List Mellin_list){

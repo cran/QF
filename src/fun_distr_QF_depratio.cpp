@@ -1,10 +1,7 @@
-#include <Rcpp.h>
 #include <RcppGSL.h>
 #include <complex>
 #include "QF.h"
 using namespace Rcpp;
-
-// [[Rcpp::interfaces(r, cpp)]]
 
 // [[Rcpp::export]]
 double pQF_depratio_c(NumericVector lambdas_1, NumericVector lambdas_2,

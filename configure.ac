@@ -9,7 +9,7 @@
 
 # The version set here will propagate to other files from here
 ## Process this file with autoconf to produce a configure script.
-AC_INIT([RcppGSL], m4_esyscmd_s([awk -e '/^Version:/ {print $2}' DESCRIPTION]))
+AC_INIT([QF], 0.0.3)
 
 # Checks for common programs using default macros
 AC_PROG_CC

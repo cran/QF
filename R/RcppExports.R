@@ -89,7 +89,3 @@ qQF_c <- function(p, Mellin_list, eps_quant, maxit_quant, q0) {
     .Call(`_QF_qQF_c`, p, Mellin_list, eps_quant, maxit_quant, q0)
 }
 
-# Register entry points for exported C++ functions
-methods::setLoadAction(function(ns) {
-    .Call('_QF_RcppExport_registerCCallable', PACKAGE = 'QF')
-})

@@ -1,7 +1,6 @@
 #include <Rcpp.h>
 #include "QF.h"
 using namespace Rcpp;
-// [[Rcpp::interfaces(r, cpp)]]
 
 // [[Rcpp::export]]
 std::vector<double> compute_ak_nc(NumericVector lambdas,
@@ -19,12 +18,12 @@ std::vector<double> compute_ak_nc(NumericVector lambdas,
 
   // create useful quantites
   for (int i = 0; i < r; i++){
-    a_0 += log(lambdas[i]);
+    a_0 += std::log(lambdas[i]);
     c_i[i] = 1.0 - beta / lambdas[i];
     b_k_const[i] = etas[i] / lambdas[i];
   };
   // first coefficient
-  a_0 = exp(0.5 * (- eta + r * log(beta) - a_0));
+  a_0 = std::exp(0.5 * (- eta + r * std::log(beta) - a_0));
   a_k.push_back(1.0);
 
   // Quantities for error control
@@ -37,7 +36,7 @@ std::vector<double> compute_ak_nc(NumericVector lambdas,
     b_k_par2 = 0.0;
     //loop for b_k
     for (int j = 0; j < r; j++) {
-      b_k_par1 += b_k_const[j] * pow(c_i[j], 1.0 * k - 1.0);
+      b_k_par1 += b_k_const[j] * std::pow(c_i[j], 1.0 * k - 1.0);
       b_k_par2 += pow(c_i[j], 1.0 * k);
     }
     b_k.push_back((1.0 * k) * beta * b_k_par1 + b_k_par2);
@@ -77,11 +76,11 @@ std::vector<double> compute_ak_c(NumericVector lambdas,
 
   // create useful quantites
   for (int i = 0; i < r; i++){
-    a_0 += log(lambdas[i]);
+    a_0 += std::log(lambdas[i]);
     c_i[i] = 1.0 - beta / lambdas[i];
     };
   // first coefficient
-  a_0 = exp(0.5 * (r * log(beta) - a_0));
+  a_0 = exp(0.5 * (r * std::log(beta) - a_0));
   a_k.push_back(1.0);
 
   // Quantities for error control
@@ -93,7 +92,7 @@ std::vector<double> compute_ak_c(NumericVector lambdas,
     b_k_par = 0.0;
     //loop for b_k
     for (int j = 0; j < r; j++) {
-      b_k_par += pow(c_i[j], 1.0 * k);
+      b_k_par += std::pow(c_i[j], 1.0 * k);
     }
     b_k.push_back(b_k_par);
     //a_k

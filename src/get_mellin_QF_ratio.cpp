@@ -1,10 +1,8 @@
-#include <Rcpp.h>
 #include <RcppGSL.h>
 #include <complex>
 #include "QF.h"
 using namespace Rcpp;
 
-// [[Rcpp::interfaces(r, cpp)]]
 
 // [[Rcpp::export]]
 List get_mellin_QF_ratio(NumericVector lambdas_1, NumericVector lambdas_2,

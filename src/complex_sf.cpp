@@ -1,17 +1,9 @@
-#include <R.h>
-#include <Rmath.h>
-#include <Rdefines.h>
 #include <complex>
 extern "C"
 {
 #include <gsl/gsl_sf_result.h>
 #include <gsl/gsl_sf_gamma.h>
 }
-
-// [[Rcpp::interfaces(r, cpp)]]
-
-
-// Funzione che calcola il pochhammer partendo da due numeri complessi x e y
 
 
 // [[Rcpp::export]]
@@ -28,7 +20,7 @@ std::complex<double> pochhammer_complex(std::complex<double> x, std::complex<dou
   std::complex<double> ln_g_1(r1.val,i1.val);
   std::complex<double> ln_g_2(r2.val,i2.val);
 
-   std::complex<double> pochhammer_def=exp(ln_g_1-ln_g_2);
+  std::complex<double> pochhammer_def = std::exp(ln_g_1-ln_g_2);
 
   return(pochhammer_def);
 }
@@ -54,7 +46,7 @@ std::complex<double> beta_complex(std::complex<double> a, std::complex<double> b
   std::complex<double> ln_g_2(r2.val,i2.val);
   std::complex<double> ln_g_3(r3.val,i3.val);
 
-  std::complex<double> beta_def=exp(ln_g_1+ln_g_2-ln_g_3);
+  std::complex<double> beta_def=std::exp(ln_g_1+ln_g_2-ln_g_3);
 
   return(beta_def);
 }
@@ -70,7 +62,7 @@ std::complex<double> gamma_complex(std::complex<double> n){
 
   std::complex<double> ln_g_1(r1.val,i1.val);
 
-  std::complex<double> gamma_def=exp(ln_g_1);
+  std::complex<double> gamma_def=std::exp(ln_g_1);
 
   return(gamma_def);
 }

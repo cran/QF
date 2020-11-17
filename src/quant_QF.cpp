@@ -1,8 +1,6 @@
-#include <Rcpp.h>
 #include <RcppGSL.h>
 #include <complex>
 using namespace Rcpp;
-// [[Rcpp::interfaces(r, cpp)]]
 
 
 // [[Rcpp::export]]

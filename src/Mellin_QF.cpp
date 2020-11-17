@@ -1,10 +1,9 @@
-#include <Rcpp.h>
 #include <RcppGSL.h>
 #include <complex>
 #include "QF.h"
 
 using namespace Rcpp;
-// [[Rcpp::interfaces(r, cpp)]]
+
 
 // [[Rcpp::export]]
 List Mellin_QF(NumericVector lambdas,
