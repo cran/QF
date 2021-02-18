@@ -1,4 +1,4 @@
-f10e82811c9d9747efb05eeb4b0f047c *DESCRIPTION
+a465c975678a6a87769a567af4df374f *DESCRIPTION
 c90af6388788a734bd51ccfae791c70d *NAMESPACE
 dde2da11f6da649ff75ee3cb22823dc7 *R/Distributions_QF.R
 2a6634699094a6f47d6a4f384f44c0d2 *R/Distributions_QF_ratio.R
@@ -27,7 +27,7 @@ d0284cda86bb81764b78b696d269f69c *src/Mellin_QF_ratio.cpp
 2b244fc4e6099f43b8089ef110110b45 *src/complex_sf.cpp
 b71c34145e11e5203e9f53c5a8bf8e04 *src/compute_ak.cpp
 a276241a62708aafcbd1e85cf87b02ef *src/fun_distr_QF.cpp
-581b08481bc339f1321236ba4cff3679 *src/fun_distr_QF_depratio.cpp
-e4c92d3a30fe834b56d79491dd66b274 *src/get_mellin_QF.cpp
-6f9075d9a4ddbb3479eef93272d57e8e *src/get_mellin_QF_ratio.cpp
+8189805e8ee2015a30eb67ea69dfa546 *src/fun_distr_QF_depratio.cpp
+ea9e1e7d6f6a00f4c3b4089c3fbc6bd5 *src/get_mellin_QF.cpp
+52059ce8c2af335e1d6b060d2930a9cd *src/get_mellin_QF_ratio.cpp
 6d4d03e01ebab6336cdff297fe8c6add *src/quant_QF.cpp

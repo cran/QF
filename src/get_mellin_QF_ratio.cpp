@@ -25,9 +25,9 @@ List get_mellin_QF_ratio(NumericVector lambdas_1, NumericVector lambdas_2,
 
 
   double lambda_min_1 = Rcpp::min(lambdas_1);
-  double eps_mell_1 = eps * lambda_min_1 * 0.01;
+  double eps_mell_1 = eps * 0.01;
   double eps_mell_2 = eps * 0.01;
-  double eps_trunc = eps * lambda_min_1;
+  double eps_trunc = eps;
   double eps_discr = eps * 0.1;
 
   NumericVector lambdas_scal_1 = lambdas_1 / lambda_min_1;
@@ -59,7 +59,7 @@ List get_mellin_QF_ratio(NumericVector lambdas_1, NumericVector lambdas_2,
                       min(lambdas_2));
   }
   if(ak_1.size() == maxit_ak || ak_2.size() == maxit_ak){// stop with error if the ak did not converged
-    stop("Computation of the a_k coefficients did not converged: consider to increase 'maxit_comp'");
+    stop("Computation of the a_k coefficients did not converge: consider to increase 'maxit_comp'");
   }
 
 
@@ -146,7 +146,7 @@ List get_mellin_QF_ratio(NumericVector lambdas_1, NumericVector lambdas_2,
         break; //stop if the error is lower that the threshold
       }
       if(i == maxit_delta - 1){// stop with error if maxit_delta is reached without the desired error
-        stop("Computation of the integration step 'delta' did not converged: consider to increase 'maxit_comp'");
+        stop("Computation of the integration step 'delta' did not converge: consider to increase 'maxit_comp'");
       }
       // new become reference
       range_F_ref = range_F_new;

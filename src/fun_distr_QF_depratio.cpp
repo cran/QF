@@ -39,7 +39,7 @@ double pQF_depratio_c(NumericVector lambdas_1, NumericVector lambdas_2,
                           min(lambdas_2));
 
     if(ak_1.size() == maxit_ak || ak_2.size() == maxit_ak){// stop with error if the ak did not converged
-      stop("Computation of the a_k coefficients did not converged: consider to increase 'maxit_comp'");
+      stop("Computation of the a_k coefficients did not converge: consider to increase 'maxit_comp'");
     }
 
 
@@ -91,7 +91,7 @@ double pQF_depratio_c(NumericVector lambdas_1, NumericVector lambdas_2,
           break; //stop if the error is lower that the threshold
         }
         if(i == maxit_delta - 1){// stop with error if maxit_delta is reached without the desired error
-          stop("Computation of the integration step 'delta' did not converged: consider to increase 'maxit_comp'");
+          stop("Computation of the integration step 'delta' did not converge: consider to increase 'maxit_comp'");
         }
         // new become reference
         F_ref = F_new;
