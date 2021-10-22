@@ -15,7 +15,7 @@ pQF_depratio(
 )
 }
 \arguments{
-\item{q}{vector of quantiles.}
+\item{q}{quantile.}
 
 \item{lambdas}{vector of eigenvalues of the matrix (A-qB).}
 

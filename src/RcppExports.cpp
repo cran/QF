@@ -6,6 +6,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // Mellin_QF
 List Mellin_QF(NumericVector lambdas, std::vector<double> a_k, int maxit, double h, std::complex<double> delta, double eps, double beta);
 RcppExport SEXP _QF_Mellin_QF(SEXP lambdasSEXP, SEXP a_kSEXP, SEXP maxitSEXP, SEXP hSEXP, SEXP deltaSEXP, SEXP epsSEXP, SEXP betaSEXP) {

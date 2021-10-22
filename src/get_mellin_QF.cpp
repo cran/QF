@@ -110,6 +110,7 @@ List get_mellin_QF(NumericVector lambdas,
         range_q_ref);
       range_q_ref = qQF_c(range_p, Mellin_new, eps_quant,
                               maxit_quant,sum(lambdas_scal));
+
       range_f_new = dQF_c(range_q_ref, Mellin_new);
       for(int k=0; k<2; k++) {
         range_f_new[k] *= 1.0 / lambda_min;
@@ -142,7 +143,8 @@ List get_mellin_QF(NumericVector lambdas,
       Mellin_ref = Mellin_new;
     }
     // definitive quantities
-    range_q_ref = qQF_c(range_p, Mellin_new, eps_quant,maxit_quant,sum(lambdas_scal));
+    range_q_ref = qQF_c(range_p, Mellin_ref, eps_quant,maxit_quant,sum(lambdas_scal));
+
     delta = delta * 2.0;
   }else{// increase delta
     for(int i=0; i<maxit_delta; i++){
@@ -180,6 +182,8 @@ List get_mellin_QF(NumericVector lambdas,
     }
   Mellin_ref["lambda_min"] = lambda_min;
   return List::create(
+    Named("range_F") = range_F_new,
+    Named("range_f") = range_f_new,
     Named("range_q") = range_q_ref,
     Named("Mellin") = Mellin_ref,
     Named("rho") = rho

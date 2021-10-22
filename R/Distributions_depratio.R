@@ -2,7 +2,7 @@
 #'
 #'The function computes the CDF of the ratio of two dependent and possibly indefinite quadratic forms.
 #'
-#'@param q vector of quantiles.
+#'@param q quantile.
 #'@param lambdas vector of eigenvalues of the matrix (A-qB).
 #'@param A matrix of the numerator QF. If not specified but \code{B} is passed, it is assumed to be the identity.
 #'@param B matrix of the numerator QF. If not specified but \code{A} is passed, it is assumed to be the identity.
@@ -38,6 +38,9 @@ pQF_depratio <- function(q=NULL, lambdas=NULL,
                          A=NULL,B=NULL,
                          eps = 1e-6, maxit_comp = 1e5,
                          lambdas_tol=NULL) {
+  if(length(q)!=1){
+    stop("'q' must be a scalar")
+  }
   # no value specified
   if(is.null(lambdas) && is.null(A)&&is.null(B)){
     stop("At least one among 'lambdas', 'A' and 'B' must be specified")
@@ -100,7 +103,7 @@ pQF_depratio <- function(q=NULL, lambdas=NULL,
   }
 
   eigen_skew <- max(c(max(lambdas_1) / min(lambdas_1), max(lambdas_2) / min(lambdas_2)))
-  if(eigen_skew > 1e5){
+  if(eigen_skew > 5e4){
     warning(paste0("The skewness of the weights, i.e. max(lambdas)/min(lambdas) is ",eigen_skew,".\n
                    Consider to specify an appropriate value for argument 'lambdas_tol'."))
   }

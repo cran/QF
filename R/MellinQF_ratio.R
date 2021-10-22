@@ -85,6 +85,12 @@ compute_MellinQF_ratio <- function(lambdas_num, lambdas_den,
      sum(etas_num < 0) != 0 || sum(etas_den < 0) != 0){
     stop("All elements of 'lambdas_num', 'lambdas_den', 'etas_num' and 'etas_den' must be positive")
   }
+  if(length(lambdas_num)!=length(etas_num)) {
+    stop("'lambdas_num' and 'etas_num' must be vectors with equal length" )
+  }
+  if(length(lambdas_den)!=length(etas_den)) {
+    stop("'lambdas_den' and 'etas_den' must be vectors with equal length" )
+  }
   lambdas_num <- lambdas_num[lambdas_num > 0]
   lambdas_den <- lambdas_den[lambdas_den > 0]
   etas_num <- etas_num[lambdas_num > 0]
