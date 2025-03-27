@@ -82,10 +82,6 @@ compute_MellinQF <- function(lambdas, etas = rep(0, length(lambdas)),
     stop("All elements of 'lambdas' and 'etas' must be positive")
   }
 
-  if(length(lambdas)!=length(etas)) {
-    stop("'lambdas' and 'etas' must be vectors with equal length" )
-  }
-
   if(rho < 0 || rho > 1){
     stop("'rho' must be between 0 and 1")
   }

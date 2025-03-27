@@ -1,10 +1,9 @@
-PKG_CPPFLAGS= -I../windows/gsl-2.7/include -I../inst/include
-PKG_LIBS= -L../windows/gsl-2.7/lib${R_ARCH}${CRT} -lgsl -lgslcblas
+ARCH=x64
+ifeq "$(WIN)" "64"
+ARCH= i386
+else
+ARCH= x64
+endif
+PKG_CPPFLAGS = -I$(LIB_GSL)/include -I. -I../inst/include
+PKG_LIBS=-L"$(LIB_GSL)/lib"${R_ARCH_BIN} -lgsl -lgslcblas
 
-all: clean winlibs
-
-winlibs:
-	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" "../tools/winlibs.R"
-
-clean:
-	rm -f $(SHLIB) $(OBJECTS)

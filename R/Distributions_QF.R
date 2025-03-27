@@ -69,7 +69,7 @@ NULL
 #' @export
 
 dQF <- function(x, obj) {
-  if(!(class(obj)=="MellinQF" )){
+  if(!inherits(obj, what = "MellinQF")){
     stop("A 'MellinQF' object is required for 'obj'")
   }
   if(sum((x < obj$range_q[1]) | (x > obj$range_q[2])) != 0) {
@@ -84,7 +84,7 @@ dQF <- function(x, obj) {
 #' @export
 
 pQF <- function(q, obj) {
-  if(!(class(obj)=="MellinQF")){
+  if(!inherits(obj, what = "MellinQF")){
     stop("A 'MellinQF' object is required for 'obj'")
   }
   if(sum((q < obj$range_q[1]) | (q > obj$range_q[2])) != 0) {
@@ -98,7 +98,7 @@ pQF <- function(q, obj) {
 #' @export
 
 qQF <- function(p, obj, eps_quant = 1e-6, maxit_quant = 1e4) {
-  if(!(class(obj)=="MellinQF")){
+  if(!inherits(obj, what = "MellinQF")){
     stop("A 'MellinQF' object is required for 'obj'")
   }
   if(sum((p < 0) | (p > 1)) != 0) {

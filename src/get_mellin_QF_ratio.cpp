@@ -158,7 +158,7 @@ List get_mellin_QF_ratio(NumericVector lambdas_1, NumericVector lambdas_2,
       Mellin_ref = Mellin_new;
     }
     // definitive quantities
-    range_q_ref = qQF_c(range_p, Mellin_ref, eps_quant,maxit_quant,sum(lambdas_scal_1)/sum(lambdas_2));
+    range_q_ref = qQF_c(range_p, Mellin_new, eps_quant,maxit_quant,sum(lambdas_scal_1)/sum(lambdas_2));
     delta = delta * 2.0;
   }else{// increase delta
     for(int i=0; i<maxit_delta; i++){
